@@ -1,1 +1,21 @@
-./project01/node_modules
+# Node modules
+node_modules/
+**/node_modules/
+
+# Lock files
+package-lock.json
+**/package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Local env files
+.env*.local
+
+# Editor directories and files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
