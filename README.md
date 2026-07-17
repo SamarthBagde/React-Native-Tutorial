@@ -21,3 +21,9 @@
 ![alt text](diagrams/andriod-file-structure.png)
 
 ![alt text](diagrams/ios-file-structure.png)
+
+---
+
+### Production project file structure 
+
+![alt text](diagrams/project-file-structure.png)
