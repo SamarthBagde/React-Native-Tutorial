@@ -7,6 +7,7 @@ import {
   View,
 } from 'react-native';
 import { setUpPlayer, addtrack } from '../../musicPlayerService';
+import MusicPlayer from '../components/MusicPlayer';
 
 const MusicPlayerScreen = () => {
   const [isPlayerReady, setIsPlayerReady] = useState(false);
@@ -29,7 +30,7 @@ const MusicPlayerScreen = () => {
   return (
     <>
       <StatusBar />
-      <Text>Test</Text>
+      <MusicPlayer />
     </>
   );
 };
