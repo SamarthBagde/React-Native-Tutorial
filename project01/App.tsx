@@ -1,17 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import FlatCards from './components/FlatCards';
-import ElevatedCards from './components/ElevatedCards';
-import ApiDataComponent from './components/ApiDataComponent';
+import FlatCards from './src/components/FlatCards';
+import ElevatedCards from './src/components/ElevatedCards';
+import ApiDataComponent from './src/components/ApiDataComponent';
+import BgChangerScreen from './src/screens/bgChangerScreen';
 
 function App() {
-  return (
-    <ScrollView>
-      <FlatCards />
-      <ElevatedCards />
-      <ApiDataComponent />
-    </ScrollView>
-  );
+  return <BgChangerScreen />;
 }
 
 export default App;
