@@ -3,21 +3,22 @@ import { View, Button, Text, StyleSheet } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { RootStackParamList } from '../navigation/StackNavigator';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Screen1'>;
 
-export default function Home({ navigation }: Props) {
+export default function Screen1({ navigation }: Props) {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
+      <Text style={styles.text}>Screen 1</Text>
 
       <Button
-        title="Go to Screen 1"
-        onPress={() => navigation.navigate('Screen1')}
+        title="Go to Screen 2"
+        onPress={() => navigation.navigate('Screen2')}
       />
 
+      <Button title="Go Back" onPress={() => navigation.goBack()} />
       <Button
-        title="Replace with Screen 2"
-        onPress={() => navigation.replace('Screen2')}
+        title="Push Screen 1 Again"
+        onPress={() => navigation.push('Screen1')}
       />
     </View>
   );
