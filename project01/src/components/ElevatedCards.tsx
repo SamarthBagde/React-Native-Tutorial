@@ -1,53 +1,73 @@
 import React from 'react';
-import { StyleSheet, View, Text, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 
 const ElevatedCards = () => {
+  const cards = [
+    { title: 'Elevated', color: '#EF4444', emoji: '✨' },
+    { title: 'Scroll', color: '#3B82F6', emoji: '📜' },
+    { title: 'Me', color: '#10B981', emoji: '🚀' },
+    { title: 'To', color: '#F59E0B', emoji: '⚡' },
+    { title: 'See', color: '#8B5CF6', emoji: '🎨' },
+    { title: 'More', color: '#EC4899', emoji: '🌟' },
+  ];
+
   return (
-    <View>
-      <Text style={styles.heading}>Elevated Card</Text>
-      <ScrollView horizontal={true} style={styles.conatiner}>
-        <View style={styles.card}>
-          <Text>Tap</Text>
-        </View>
-        <View style={styles.card}>
-          <Text>Tap</Text>
-        </View>
-        <View style={styles.card}>
-          <Text>Tap</Text>
-        </View>
-        <View style={styles.card}>
-          <Text>Tap</Text>
-        </View>
-        <View style={styles.card}>
-          <Text>Tap</Text>
-        </View>
+    <View style={styles.sectionContainer}>
+      <Text style={styles.heading}>Elevated Cards</Text>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.scrollContainer}>
+        {cards.map((item, index) => (
+          <View key={index} style={[styles.card, styles.cardElevated, { borderTopColor: item.color, borderTopWidth: 4 }]}>
+            <Text style={styles.cardEmoji}>{item.emoji}</Text>
+            <Text style={styles.cardText}>{item.title}</Text>
+          </View>
+        ))}
       </ScrollView>
     </View>
   );
 };
 
+export default ElevatedCards;
+
 const styles = StyleSheet.create({
+  sectionContainer: {
+    marginVertical: 12,
+  },
   heading: {
     fontSize: 20,
-    fontWeight: 'bold',
-    padding: 8,
+    fontWeight: '700',
+    color: '#1F2937',
+    paddingHorizontal: 16,
+    marginBottom: 12,
   },
-  conatiner: {
-    padding: 8,
+  scrollContainer: {
+    paddingHorizontal: 12,
   },
   card: {
-    flex: 1,
-    alignItems: 'center',
     justifyContent: 'center',
-    width: 200,
-    height: 200,
-    margin: 4,
-    backgroundColor: '#8ab5e7',
-    borderRadius: 8,
+    alignItems: 'center',
+    width: 100,
+    height: 100,
+    borderRadius: 12,
+    marginHorizontal: 4,
+    backgroundColor: '#FFFFFF',
   },
   cardElevated: {
     elevation: 4,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+  },
+  cardEmoji: {
+    fontSize: 24,
+    marginBottom: 4,
+  },
+  cardText: {
+    fontSize: 14,
+    fontWeight: '600',
+    color: '#374151',
   },
 });
-
-export default ElevatedCards;
