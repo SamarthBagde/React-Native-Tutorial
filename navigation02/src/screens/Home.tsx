@@ -1,36 +1,20 @@
 import React from 'react';
-import { View, Button, Text, StyleSheet } from 'react-native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/StackNavigator';
+import { View, Text, Button } from 'react-native';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { HomeStackParamList } from '../navigation/types';
+
+type Props = NativeStackScreenProps<HomeStackParamList, 'Home'>;
 
 export default function Home({ navigation }: Props) {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>Home Screen</Text>
+    <View>
+      <Text>Home Screen</Text>
 
       <Button
-        title="Go to Screen 1"
+        title="Go To Screen 1"
         onPress={() => navigation.navigate('Screen1')}
-      />
-
-      <Button
-        title="Replace with Screen 2"
-        onPress={() => navigation.replace('Screen2')}
       />
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    fontSize: 30,
-    marginBottom: 20,
-  },
-});

@@ -2,12 +2,12 @@ import { StyleSheet } from 'react-native';
 
 //Natigation
 import { NavigationContainer } from '@react-navigation/native';
-import StackNavigator from './src/navigation/StackNavigator';
+import BottomTabNavigator from './src/navigation/BottomTabNavigator';
 
 function App() {
   return (
     <NavigationContainer>
-      <StackNavigator />
+      <BottomTabNavigator />
     </NavigationContainer>
   );
 }

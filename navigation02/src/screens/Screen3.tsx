@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/StackNavigator';
+import { HomeStackParamList } from '../navigation/types';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Screen3'>;
+type Props = NativeStackScreenProps<HomeStackParamList, 'Screen3'>;
 
 export default function Screen3({ navigation }: Props) {
   return (
