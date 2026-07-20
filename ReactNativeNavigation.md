@@ -51,19 +51,19 @@ npm install react-native-screens react-native-safe-area-context
 ```mermaid
 graph TD
     App["App.tsx"] --> NC["NavigationContainer"]
-    NC --> TabNav["BottomTabNavigator (Tab.Navigator)"]
+    NC --> TabNav["BottomTabNavigator"]
     
-    TabNav --> HomeStack["Tab: HomeStack (headerShown: false)"]
+    TabNav --> HomeStack["Tab: HomeStack"]
     TabNav --> SearchTab["Tab: Search"]
     TabNav --> ProfileTab["Tab: Profile"]
     
-    HomeStack --> StackNav["HomeStackNavigator (Stack.Navigator)"]
+    HomeStack --> StackNav["HomeStackNavigator"]
     
     StackNav --> HomeScreen["Home Screen"]
-    StackNav --> Screen1["Screen 1 (Push / Pop)"]
-    StackNav --> Screen2["Screen 2 (setParams)"]
-    StackNav --> Screen3["Screen 3 (popToTop)"]
-    StackNav --> DetailsScreen["Details Screen (Dynamic Title)"]
+    StackNav --> Screen1["Screen 1"]
+    StackNav --> Screen2["Screen 2"]
+    StackNav --> Screen3["Screen 3"]
+    StackNav --> DetailsScreen["Details Screen"]
 ```
 
 ---
@@ -72,13 +72,13 @@ graph TD
 
 ```mermaid
 flowchart LR
-    Home["Home Screen"] -->|navigate('Screen1')| S1["Screen 1"]
-    S1 -->|push('Screen1')| S1Push["Screen 1 (Level +1)"]
-    S1 -->|navigate('Screen2')| S2["Screen 2"]
-    S2 -->|setParams()| S2Params["Screen 2 (Updated State)"]
-    S2 -->|navigate('Screen3')| S3["Screen 3"]
-    S3 -->|popToTop()| Home
-    Home -->|navigate('Details', params)| Details["Details Screen"]
+    Home["Home Screen"] -->|Navigate to Screen 1| S1["Screen 1"]
+    S1 -->|Push Screen 1| S1Push["Screen 1 Level 2"]
+    S1 -->|Navigate to Screen 2| S2["Screen 2"]
+    S2 -->|Set Params| S2Params["Screen 2 Updated"]
+    S2 -->|Navigate to Screen 3| S3["Screen 3"]
+    S3 -->|Pop To Top| Home
+    Home -->|Navigate with Params| Details["Details Screen"]
 ```
 
 ---
@@ -87,8 +87,8 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-    Screen3["Screen 3 (Inside HomeStack)"] -->|navigation.navigate('Profile')| ProfileTab["Profile Tab"]
-    Home["Home Screen"] -->|navigation.navigate('Search')| SearchTab["Search Tab"]
+    Screen3["Screen 3 in HomeStack"] -->|Navigate to Profile Tab| ProfileTab["Profile Tab"]
+    Home["Home Screen"] -->|Navigate to Search Tab| SearchTab["Search Tab"]
 ```
 
 ---
