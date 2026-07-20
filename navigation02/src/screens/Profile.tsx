@@ -6,17 +6,20 @@ import { BottomTabParamList } from '../navigation/types';
 type Props = BottomTabScreenProps<BottomTabParamList, 'Profile'>;
 
 export default function Profile({ navigation, route }: Props) {
+  // Read optional userId route parameter passed when switching tab
   const userId = route.params?.userId || 'guest';
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <Text style={styles.title}>Profile Screen</Text>
 
+      {/* User ID display */}
       <View style={styles.box}>
         <Text style={styles.label}>User ID:</Text>
         <Text style={styles.value}>{userId}</Text>
       </View>
 
+      {/* Switch back to HomeStack tab */}
       <TouchableOpacity
         style={styles.buttonPrimary}
         onPress={() =>

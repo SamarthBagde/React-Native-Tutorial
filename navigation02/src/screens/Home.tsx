@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-nati
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { HomeStackParamList } from '../navigation/types';
 
+// Props type for the Home screen inside HomeStackNavigator
 type Props = NativeStackScreenProps<HomeStackParamList, 'Home'>;
 
 export default function Home({ navigation }: Props) {
@@ -11,6 +12,7 @@ export default function Home({ navigation }: Props) {
       <Text style={styles.title}>React Native Navigation</Text>
       <Text style={styles.subtitle}>Select a navigation option to test:</Text>
 
+      {/* 1. Navigate to Screen1 passing optional params */}
       <TouchableOpacity
         style={styles.button}
         onPress={() => navigation.navigate('Screen1', { stepCount: 1 })}
@@ -18,6 +20,7 @@ export default function Home({ navigation }: Props) {
         <Text style={styles.buttonText}>1. Go to Screen 1 (Stack Push & Pop)</Text>
       </TouchableOpacity>
 
+      {/* 2. Navigate to Screen2 passing a string parameter */}
       <TouchableOpacity
         style={styles.button}
         onPress={() =>
@@ -29,6 +32,7 @@ export default function Home({ navigation }: Props) {
         <Text style={styles.buttonText}>2. Go to Screen 2 (Route Params)</Text>
       </TouchableOpacity>
 
+      {/* 3. Navigate to Details passing full item details object */}
       <TouchableOpacity
         style={styles.button}
         onPress={() =>
@@ -44,6 +48,7 @@ export default function Home({ navigation }: Props) {
         <Text style={styles.buttonText}>3. Go to Details (Dynamic Header)</Text>
       </TouchableOpacity>
 
+      {/* 4. Switch tabs programmatically to Search */}
       <TouchableOpacity
         style={styles.buttonSecondary}
         onPress={() => navigation.navigate('Search' as any)}

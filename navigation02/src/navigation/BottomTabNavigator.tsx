@@ -7,6 +7,7 @@ import Profile from '../screens/Profile';
 
 import { BottomTabParamList } from './types';
 
+// Create bottom tab navigator instance
 const Tab = createBottomTabNavigator<BottomTabParamList>();
 
 export default function BottomTabNavigator() {
@@ -21,15 +22,20 @@ export default function BottomTabNavigator() {
         },
       }}
     >
+      {/* HomeStack tab screen: headerShown set to false to prevent duplicate top header */}
       <Tab.Screen
         name="HomeStack"
         component={HomeStackNavigator}
         options={{
           title: 'Home',
-          headerShown: false, // Prevents duplicate header (Stack Navigator handles header)
+          headerShown: false, // Prevents duplicate header bar (Stack Navigator handles its own header)
         }}
       />
+
+      {/* Search tab screen */}
       <Tab.Screen name="Search" component={Search} />
+
+      {/* Profile tab screen */}
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );

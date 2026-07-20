@@ -6,6 +6,7 @@ import { HomeStackParamList } from '../navigation/types';
 type Props = NativeStackScreenProps<HomeStackParamList, 'Screen1'>;
 
 export default function Screen1({ navigation, route }: Props) {
+  // Read passed stepCount parameter or default to 1
   const stepCount = route.params?.stepCount || 1;
 
   return (
@@ -15,6 +16,7 @@ export default function Screen1({ navigation, route }: Props) {
         Test navigation stack operations below:
       </Text>
 
+      {/* Push adds a NEW instance of Screen1 onto the stack */}
       <TouchableOpacity
         style={styles.buttonPrimary}
         onPress={() => navigation.push('Screen1', { stepCount: stepCount + 1 })}
@@ -22,6 +24,7 @@ export default function Screen1({ navigation, route }: Props) {
         <Text style={styles.buttonText}>Push Screen 1 Again (Stack Level {stepCount + 1})</Text>
       </TouchableOpacity>
 
+      {/* Navigate moves forward to Screen2 */}
       <TouchableOpacity
         style={styles.buttonPrimary}
         onPress={() => navigation.navigate('Screen2', { message: `From Screen 1 Level ${stepCount}` })}
@@ -29,6 +32,7 @@ export default function Screen1({ navigation, route }: Props) {
         <Text style={styles.buttonText}>Go to Screen 2</Text>
       </TouchableOpacity>
 
+      {/* goBack pops the current screen off the stack */}
       <TouchableOpacity
         style={styles.buttonOutline}
         onPress={() => navigation.goBack()}
@@ -36,6 +40,7 @@ export default function Screen1({ navigation, route }: Props) {
         <Text style={styles.buttonOutlineText}>Go Back (pop)</Text>
       </TouchableOpacity>
 
+      {/* popToTop resets the stack back to the root (Home) screen */}
       <TouchableOpacity
         style={styles.buttonOutline}
         onPress={() => navigation.popToTop()}

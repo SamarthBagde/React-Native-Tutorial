@@ -6,8 +6,10 @@ import { HomeStackParamList } from '../navigation/types';
 type Props = NativeStackScreenProps<HomeStackParamList, 'Screen2'>;
 
 export default function Screen2({ navigation, route }: Props) {
+  // Read route parameter passed from previous screen
   const message = route.params?.message || 'No message received';
 
+  // Function updating route params dynamically on the current screen
   const handleUpdateParams = () => {
     navigation.setParams({
       message: `Updated at ${new Date().toLocaleTimeString()}`,
@@ -19,14 +21,17 @@ export default function Screen2({ navigation, route }: Props) {
       <Text style={styles.title}>Screen 2</Text>
       <Text style={styles.description}>Route parameters passed to this screen:</Text>
 
+      {/* Render the route parameter value */}
       <View style={styles.paramBox}>
         <Text style={styles.paramText}>{message}</Text>
       </View>
 
+      {/* Button calling setParams to update route.params dynamically */}
       <TouchableOpacity style={styles.buttonPrimary} onPress={handleUpdateParams}>
         <Text style={styles.buttonText}>Update Params (setParams)</Text>
       </TouchableOpacity>
 
+      {/* Navigate forward to Screen3 */}
       <TouchableOpacity
         style={styles.buttonPrimary}
         onPress={() => navigation.navigate('Screen3')}
@@ -34,6 +39,7 @@ export default function Screen2({ navigation, route }: Props) {
         <Text style={styles.buttonText}>Go to Screen 3</Text>
       </TouchableOpacity>
 
+      {/* Pop back to previous screen */}
       <TouchableOpacity
         style={styles.buttonOutline}
         onPress={() => navigation.goBack()}

@@ -11,6 +11,7 @@ export default function Screen3({ navigation }: Props) {
       <Text style={styles.title}>Screen 3</Text>
       <Text style={styles.description}>End of stack flow.</Text>
 
+      {/* Resets current stack completely back to Home */}
       <TouchableOpacity
         style={styles.buttonPrimary}
         onPress={() => navigation.popToTop()}
@@ -18,6 +19,7 @@ export default function Screen3({ navigation }: Props) {
         <Text style={styles.buttonText}>Pop to Top (Home)</Text>
       </TouchableOpacity>
 
+      {/* Switches tab directly to Profile tab from inside stack */}
       <TouchableOpacity
         style={styles.buttonSecondary}
         onPress={() => navigation.navigate('Profile' as any, { userId: 'user_123' })}
@@ -25,6 +27,7 @@ export default function Screen3({ navigation }: Props) {
         <Text style={styles.buttonSecondaryText}>Switch to Profile Tab</Text>
       </TouchableOpacity>
 
+      {/* Pops back to Screen2 */}
       <TouchableOpacity
         style={styles.buttonOutline}
         onPress={() => navigation.goBack()}

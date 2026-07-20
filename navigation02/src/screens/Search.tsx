@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+// Simple tab screen component with clear layout
 export default function Search() {
   return (
     <View style={styles.container}>

@@ -6,6 +6,7 @@ import { HomeStackParamList } from '../navigation/types';
 type Props = NativeStackScreenProps<HomeStackParamList, 'Details'>;
 
 export default function Details({ navigation, route }: Props) {
+  // Extract route parameters passed to Details screen
   const { itemId, title, category, description } = route.params || {
     itemId: 0,
     title: 'Details',
@@ -18,10 +19,12 @@ export default function Details({ navigation, route }: Props) {
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.subtitle}>Item ID: #{itemId} • Category: {category}</Text>
 
+      {/* Render parameters description */}
       <View style={styles.box}>
         <Text style={styles.boxText}>{description}</Text>
       </View>
 
+      {/* Go back to Home */}
       <TouchableOpacity
         style={styles.buttonOutline}
         onPress={() => navigation.goBack()}
