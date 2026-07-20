@@ -1,15 +1,10 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
-import { BottomTabParamList } from '../navigation/types';
-
-type Props = BottomTabScreenProps<BottomTabParamList, 'Search'>;
-
-export default function Search({ navigation }: Props) {
+export default function Search() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Search Screen</Text>
+      <Text style={styles.text}>Search Screen</Text>
     </View>
   );
 }
@@ -19,10 +14,11 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor: '#ffffff',
   },
-
-  title: {
-    fontSize: 30,
-    marginBottom: 20,
+  text: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#111111',
   },
 });
